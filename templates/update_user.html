@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+
+{% block title %}Update{% endblock %}
+
+{% block body %}
+    <p class="m-3">Enter the id of the item you want to update:</p>
+    <form method="POST" action="/updateuser" class="mx-3">
+        <!-- Input the id of the user that will be updated -->
+        <div class="m-3">
+            <input name="id" type="number" class="form-control" placeholder="ID" required="" autofocus="" value="{{id}}">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block mx-3" type="submit">Search</button>
+
+
+        <!--  If no user or invalid id nothing is shown-->
+        {% if user != None %}
+        <p class="m-3">Note: ID cannot be changed. 
+            Updated_at is changed automatically when user is updated.</p>
+
+            <!-- Loops through all user info and creates input fields to change it -->
+            <table class="table">
+                <th>
+                    {% for key in user%}
+                        {% if key not in ["id", "updated_at"] %}
+                            <!-- The original value is set as the default to then be changed when updated-->
+                            <th>
+                                <input name="{{key}}" class="form-control" placeholder="{{key}}" required="" autofocus="" value="{{user[key]}}">
+                            </th>
+                        {% endif %}
+                    {% endfor %}
+                </th>
+            </table>
+
+            <button class="btn btn-lg btn-primary btn-block mx-3" type="submit">Update</button>
+
+    {% endif %}
+    </form>
+
+
+    
+{% endblock %}

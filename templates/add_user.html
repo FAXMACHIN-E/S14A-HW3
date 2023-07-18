@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block title %}Add{% endblock %}
+
+{% block body %}
+    <form method="POST" action="/adduser" class="mx-3">
+        <!-- Data inputed here to create a new user -->
+        <div class="m-3">
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email Address" required="" autofocus="">
+        </div>
+
+        <div class="m-3">
+            <input name="phone_number" type="number"  class="form-control" placeholder="Phone Number" required="" autofocus="">
+        </div>
+
+        <div class="m-3">
+            <input name="status" type="number" class="form-control" placeholder="Status" required="" autofocus="">
+        </div>
+
+        <div class="form-check m-3">
+            <input class="form-check-input" type="radio" name="is_admin" id="flexRadioDefault1" value="1" required="">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Admin
+            </label>
+        </div>
+          
+        <div class="form-check m-3">
+            <input class="form-check-input" type="radio" name="is_admin" id="flexRadioDefault1" value="0" required="">
+            <label class="form-check-label" for="flexRadioDefault1">
+              User
+            </label>
+        </div>
+        
+        <button class="btn btn-lg btn-primary btn-block mx-3" type="submit">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block title %}Orders{% endblock %}
+
+{% block body %}
+    <!-- If a user_id was not provided, then the page is blank -->
+    {% if columns != None %}
+        <table class="table">
+            <!-- Displays all column values -->
+            <tr>
+                {% for column in columns%}
+                    <th>{{column}}</th>
+                {% endfor %}
+            </tr>
+
+            {% for order in orders %}
+                <tr>
+                    <!-- Converts user row into a dict and then displays each value -->
+                    {% for key in order.as_dict()%}
+                        <th>{{order.as_dict()[key]}}</th>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block body %}
+    <p class="m-3">Enter the id of the item you want to delete:</p>
+    <!-- The id of the user being deleted is entered here -->
+    <form method="POST" action="/deleteuser" class="mx-3">
+        <div class="m-3">
+            <input name="id" type="number" class="form-control" placeholder="ID" required="" autofocus="">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mx-3" type="submit">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends '_base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+
+        <!-- Renders all column names at the top -->
+        <tr>
+            {% for column in columns%}
+                <th>{{column}}</th>
+            {% endfor %}
+                <th>Orders</th>
+        </tr>
+
+        <!-- Cycles through each user in the database -->
+        {% for user in users%}
+            <tr>
+                <!-- Converts user row into a dict and then displays each value -->
+                {% for key in user.as_dict()%}
+                    <th>{{user.as_dict()[key]}}</th>
+                {% endfor %}
+                    <th>
+                        <a name="id" href="/orders?id={{user.as_dict().id}}">...</a>
+                    </th>
+            </tr>
+        {% endfor %}
+
+        
+
+    </table>
+
+{% endblock %}
